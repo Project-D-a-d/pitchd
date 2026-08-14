@@ -1,9 +1,32 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import AdminGuard from '@/components/AdminGuard'
 
 export default function AdminDashboard() {
+  const [pendingCount, setPendingCount] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const response = await fetch('/api/admin/approvals')
+        if (response.ok) {
+          const data = await response.json()
+          const pending = data.approvals?.filter((a: any) => a.status === 'pending').length || 0
+          setPendingCount(pending)
+        }
+      } catch (err) {
+        console.error('Failed to fetch stats:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchStats()
+  }, [])
+
   return (
     <AdminGuard>
       <div className="space-y-8">
@@ -21,7 +44,9 @@ export default function AdminDashboard() {
           >
             <h3 className="text-xl font-semibold text-blue-900 mb-2">👥 Coach Approvals</h3>
             <p className="text-blue-700 text-sm">Review and approve pending coach requests</p>
-            <div className="mt-4 text-2xl font-bold text-blue-600">0</div>
+            <div className="mt-4 text-2xl font-bold text-blue-600">
+              {loading ? '...' : pendingCount}
+            </div>
             <p className="text-blue-600 text-xs mt-1">Pending requests</p>
           </Link>
 
