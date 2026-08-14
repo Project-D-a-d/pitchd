@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
       requested_at,
       expires_at,
       decided_at,
-      profiles!coach_id(full_name, email: id)
+      profiles!coach_id(full_name)
     `)
     .eq('club_id', profile.club_id)
     .order('requested_at', { ascending: false })
@@ -48,8 +48,8 @@ export async function GET(req: NextRequest) {
   const transformedApprovals = approvals?.map((approval: any) => ({
     id: approval.id,
     coach_id: approval.coach_id,
-    coach_name: approval.profiles?.full_name || 'Unknown',
-    coach_email: approval.profiles?.email || 'Unknown',
+    coach_name: approval.profiles?.full_name || 'Unknown Coach',
+    coach_email: 'coach@example.com', // TODO: fetch from auth.users
     status: approval.status,
     requested_at: approval.requested_at,
     expires_at: approval.expires_at,
