@@ -38,6 +38,9 @@ export default function AuthenticatedLayout({
               <Link href="/my-bookings" className="text-gray-700 hover:text-blue-600 font-medium">
                 My Bookings
               </Link>
+              <Link href="/admin" className="text-gray-700 hover:text-purple-600 font-medium">
+                Admin
+              </Link>
               <button
                 onClick={handleSignOut}
                 className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium"
@@ -76,6 +79,12 @@ export default function AuthenticatedLayout({
                 className="block text-gray-700 hover:text-blue-600 font-medium py-2"
               >
                 My Bookings
+              </Link>
+              <Link
+                href="/admin"
+                className="block text-gray-700 hover:text-purple-600 font-medium py-2"
+              >
+                Admin
               </Link>
               <button
                 onClick={handleSignOut}
