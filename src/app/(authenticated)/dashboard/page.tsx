@@ -45,7 +45,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Link
           href="/booking"
           className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg hover:shadow-md transition-shadow"
@@ -60,6 +60,14 @@ export default function DashboardPage() {
         >
           <h3 className="text-xl font-semibold text-green-900 mb-2">📋 My Bookings</h3>
           <p className="text-green-700">View and manage your reservations</p>
+        </Link>
+
+        <Link
+          href="/subscribe"
+          className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg hover:shadow-md transition-shadow"
+        >
+          <h3 className="text-xl font-semibold text-purple-900 mb-2">💳 Subscribe</h3>
+          <p className="text-purple-700">Upgrade your team subscription</p>
         </Link>
       </div>
 
