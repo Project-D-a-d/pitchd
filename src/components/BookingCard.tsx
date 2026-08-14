@@ -11,6 +11,9 @@ interface BookingCardProps {
   onBookingSuccess?: () => void
 }
 
+// Alias for clarity
+type SlotIndex = number
+
 export default function BookingCard({
   time,
   slotNumber,
@@ -33,7 +36,7 @@ export default function BookingCard({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           pitch_id: pitchId,
-          slot_number: slotNumber,
+          slot_index: slotNumber - 1, // Convert 1-indexed to 0-indexed
           booking_date: date,
         }),
       })

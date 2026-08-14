@@ -5,7 +5,7 @@ import BookingGrid from '@/components/BookingGrid'
 
 export default function BookingPage() {
   const [date, setDate] = useState('')
-  const [pitchId, setPitchId] = useState('pitch-1')
+  const [pitchId, setPitchId] = useState('00000000-0000-0000-0000-000000000010')
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
@@ -54,9 +54,9 @@ export default function BookingPage() {
           onChange={(e) => setPitchId(e.target.value)}
           className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <option value="pitch-1">Pitch A</option>
-          <option value="pitch-2">Pitch B</option>
-          <option value="pitch-3">Pitch C</option>
+          <option value="00000000-0000-0000-0000-000000000010">Pitch A</option>
+          <option value="00000000-0000-0000-0000-000000000011">Pitch B</option>
+          <option value="00000000-0000-0000-0000-000000000012">Pitch C</option>
         </select>
       </div>
 

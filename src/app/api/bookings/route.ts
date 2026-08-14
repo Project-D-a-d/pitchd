@@ -3,9 +3,9 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 
 const bodySchema = z.object({
-  pitch_id: z.string().uuid(),
+  pitch_id: z.string().min(1),
   booking_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  slot_index: z.number().int().min(0).max(7),
+  slot_index: z.number().int().min(0).max(11),
 });
 
 export async function POST(req: NextRequest) {
