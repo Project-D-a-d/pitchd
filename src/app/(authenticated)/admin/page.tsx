@@ -92,6 +92,15 @@ export default function AdminDashboard() {
             <p className="text-orange-600 text-xs mt-1">Active pitches</p>
           </Link>
 
+          {/* Invite Coaches */}
+          <Link
+            href="/admin/invite-coaches"
+            className="p-6 bg-gradient-to-br from-pink-50 to-pink-100 border border-pink-200 rounded-lg hover:shadow-md transition-shadow"
+          >
+            <h3 className="text-xl font-semibold text-pink-900 mb-2">📧 Invite Coaches</h3>
+            <p className="text-pink-700 text-sm">Send invitations to join your club</p>
+          </Link>
+
           {/* Reports */}
           <Link
             href="/admin/reports"
